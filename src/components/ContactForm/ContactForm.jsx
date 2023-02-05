@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import PropTypes from 'prop-types';
-import { addContact } from "redux/contacts-slice";
+import { addContact } from "../../redux/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts } from "redux/contacts-slice";
+import { selectContacts } from "redux/selectors";
 
 import { Form, Label, Input, FormButton } from "./ContactForm.styles";
 
@@ -16,7 +16,7 @@ export default function ContactForm() {
     const nameId = nanoid();
     const numberId = nanoid();
 
-    const contacts = useSelector(getContacts);
+    const contacts = useSelector(selectContacts);
     const dispatch = useDispatch();
 
     const handleChange = evt => {
