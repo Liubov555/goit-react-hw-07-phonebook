@@ -10,16 +10,15 @@ export default function ContactList() {
 
     return (
         <List>
-            {contacts.map(
-                ({
-                    id,
-                    name,
-                    number
-                }) => {
+            {contacts.map(({id, name, number}) => {
                     return (
                         <Item key={id}>
                             <Text> {name}: {number} </Text>
-                            <Button type="button" onClick={() => dispatch(deleteContact(id))}>Delete</Button>
+                            <Button
+                                type="button"
+                                onClick={() => dispatch(deleteContact(id))}>
+                                Delete
+                            </Button>
                         </Item>
                     );
                 }
@@ -35,5 +34,5 @@ ContactList.prototypes = {
             name: PropTypes.string.isRequired,
             number: PropTypes.string.isRequired,
         })),
-    deleteContact: PropTypes.func.isRequired,
+    deleteContact: PropTypes.func,
 }

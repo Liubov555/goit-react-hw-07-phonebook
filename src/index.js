@@ -5,7 +5,7 @@ import './index.css';
 
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import reportWebVitals from 'reportWebVisials';
+import reportWebVitals from './reportWebVisials'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

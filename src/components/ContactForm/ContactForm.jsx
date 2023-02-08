@@ -44,8 +44,7 @@ export default function ContactForm() {
             id: nanoid()
         };
 
-        const checkContact = contacts.some(
-            (contact) => contact.name.toLowerCase() === name.toLowerCase()
+        const checkContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase()
         );
 
         checkContact ?
