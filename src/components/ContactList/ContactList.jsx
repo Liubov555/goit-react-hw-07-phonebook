@@ -10,18 +10,18 @@ export default function ContactList() {
 
     return (
         <List>
-            {contacts.map(({id, name, number}) => {
-                    return (
-                        <Item key={id}>
-                            <Text> {name}: {number} </Text>
-                            <Button
-                                type="button"
-                                onClick={() => dispatch(deleteContact(id))}>
-                                Delete
-                            </Button>
-                        </Item>
-                    );
-                }
+            {contacts.map(({ id, name, phone }) => {
+                return (
+                    <Item key={id}>
+                        <Text> {name}: {phone} </Text>
+                        <Button
+                            type="button"
+                            onClick={() => dispatch(deleteContact(id))}>
+                            Delete
+                        </Button>
+                    </Item>
+                );
+            }
             )}
         </List>
     );
