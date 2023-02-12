@@ -11,10 +11,10 @@ import { Form, Label, Input, FormButton } from "./ContactForm.styles";
 export default function ContactForm() {
 
     const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
+    const [phone, setPhone] = useState('');
 
     const nameId = nanoid();
-    const numberId = nanoid();
+    const phoneId = nanoid();
 
     const contacts = useSelector(selectContacts);
     const dispatch = useDispatch();
@@ -27,8 +27,8 @@ export default function ContactForm() {
                 setName(value);
                 break;
 
-            case 'number':
-                setNumber(value);
+            case 'phone':
+                setPhone(value);
                 break;
 
             default:
@@ -40,7 +40,7 @@ export default function ContactForm() {
         evt.preventDefault();
         const contact = {
             name,
-            number,
+            phone,
             id: nanoid()
         };
 
@@ -56,7 +56,7 @@ export default function ContactForm() {
 
     const resetSubmit = () => {
         setName('');
-        setNumber('');
+        setPhone('');
     };
 
     return (
@@ -77,10 +77,10 @@ export default function ContactForm() {
             <Label>
                 Number:
                 <Input
-                    id={numberId}
+                    id={phoneId}
                     type="tel"
-                    name="number"
-                    value={number}
+                    name="phone"
+                    value={phone}
                     onChange={handleChange}
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -95,6 +95,6 @@ export default function ContactForm() {
 
 ContactForm.prototypes = {
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired,
 }
